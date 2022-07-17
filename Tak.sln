@@ -1,8 +1,30 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tak.Core", "src\Tak.Core\Tak.Core.csproj", "{253B9CC9-1D2E-4FD4-8838-237BFFC96576}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7091289A-A870-4E35-AF32-E2014C9E2E98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{77D3F323-6853-4ED3-B640-AE9E48C0F5C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tak.Core.Tests", "tests\Tak.Core.Tests\Tak.Core.Tests.csproj", "{2635D5B1-EEAF-4096-B7D8-8445561F3D8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{253B9CC9-1D2E-4FD4-8838-237BFFC96576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{253B9CC9-1D2E-4FD4-8838-237BFFC96576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{253B9CC9-1D2E-4FD4-8838-237BFFC96576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{253B9CC9-1D2E-4FD4-8838-237BFFC96576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2635D5B1-EEAF-4096-B7D8-8445561F3D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2635D5B1-EEAF-4096-B7D8-8445561F3D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2635D5B1-EEAF-4096-B7D8-8445561F3D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2635D5B1-EEAF-4096-B7D8-8445561F3D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{253B9CC9-1D2E-4FD4-8838-237BFFC96576} = {7091289A-A870-4E35-AF32-E2014C9E2E98}
+		{2635D5B1-EEAF-4096-B7D8-8445561F3D8D} = {77D3F323-6853-4ED3-B640-AE9E48C0F5C8}
 	EndGlobalSection
 EndGlobal
