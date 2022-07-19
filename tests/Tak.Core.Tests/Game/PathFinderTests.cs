@@ -11,8 +11,15 @@ public class PathFinderTests
       {
          {"--", "--", "--", "--", "--"}, {"--", "--", "--", "--", "--"}, {"wf", "wf", "wf", "wf", "wf"}, {"--", "--", "--", "--", "--"},
          {"--", "--", "--", "--", "--"},
+         // {"--", "--", "wf", "--", "--"},
+         // {"--", "--", "wf", "--", "--"}, 
+         // {"--", "--", "wf", "--", "--"},
+         // {"--", "--", "wf", "--", "--"},
+         // {"--", "--", "wf", "--", "--"},
       };
 
+      // ref: https://stackoverflow.com/questions/2203525/are-the-x-y-and-row-col-attributes-of-a-two-dimensional-array-backwards
+      // for why it's [y, x] not [x, y]
       var board = new GameBoard(boardSetup.GetLength(0), boardSetup.GetLength(1));
       for (int y = 0; y < boardSetup.GetLength(0); y++)
       {
@@ -20,7 +27,7 @@ public class PathFinderTests
          {
             var stone = boardSetup[ x, y ].ToStone();
             if (stone is not null)
-               board[ x, y ].Stack!.Add(stone);
+               board[ y, x ].Stack!.Add(stone);
          }
       }
 

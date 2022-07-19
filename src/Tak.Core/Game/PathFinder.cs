@@ -84,18 +84,18 @@ public class PathFinder : IPathFinder
          var possible = current;
          possible.Offset(_directionOffsets[ direction ]);
 
-         if(!board.IsOnBoard(possible))
+         if (!board.IsOnBoard(possible))
             continue;
-         if(board[possible].IsEmpty)
+         if (board[ possible ].IsEmpty)
             continue;
-         if(board[possible].Owner != player)
+         if (board[ possible ].Owner != player)
             continue;
-         if(board[possible].Stack!.TopStone!.IsWalled)
+         if (board[ possible ].Stack!.TopStone!.IsWalled)
             continue;
-         
+
          possibles.Add(possible);
       }
-      
+
       return possibles;
    }
 }
