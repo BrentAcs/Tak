@@ -1,6 +1,16 @@
 ﻿namespace Tak.Core.Game;
 
-public class Square
+public interface ISquare
 {
-   public StoneStack? Stack { get; set; } = new();
+   IStoneStack? Stack { get; }
+   bool IsEmpty { get; }
+   PlayerColor Owner { get; }
+}
+
+public class Square : ISquare
+{
+   public IStoneStack? Stack { get; } = new StoneStack();
+
+   public bool IsEmpty => Stack!.Count == 0;
+   public PlayerColor Owner => Stack!.Owner;
 }

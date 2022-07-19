@@ -1,13 +1,9 @@
 ﻿namespace Tak.Core.Game;
 
-public enum PlayerColor
-{
-   White = 1,
-   Black,
-}
-
 public abstract record Stone
 {
+   public abstract bool IsFlat { get; }
+   public bool IsWalled { get; init; }
    public abstract bool IsCapstone { get; }
    public PlayerColor Player { get; init; }
 
@@ -20,17 +16,23 @@ public abstract record Stone
 public record FlatStone : Stone
 {
    public override bool IsCapstone => false;
-   public bool IsWall { get; set; }
-   public bool IsFlat => !IsWall;
+   public override bool IsFlat => !IsWalled;
 
    public FlatStone(PlayerColor player) : base(player)
    {
    }
+   
+   public FlatStone(PlayerColor player, bool isWalled) : base(player)
+   {
+      IsWalled = isWalled;
+   }
+   
 }
 
 public record Capstone : Stone
 {
    public override bool IsCapstone => true;
+   public override bool IsFlat => false;
 
    public Capstone(PlayerColor player) : base(player)
    {
