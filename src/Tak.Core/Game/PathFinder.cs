@@ -56,22 +56,55 @@ public class PathFinder : IPathFinder
       return idStrategies[ startingPosition ];
    }
 
-   public IEnumerable<Point> Find(GameBoard board, int startingX, int startingY)
-      => Find(board, new Point(startingX, startingY));
+   // public IEnumerable<Point> Find(GameBoard board, int startingX, int startingY)
+   //    => Find(board, new Point(startingX, startingY));
+   //
+   // public IEnumerable<Point> Find(GameBoard board, Point startingPosition)
+   // {
+   //    var path = new List<(Point, List<Direction>)>();
+   //
+   //    if (!IdentifyBorderPosition(board, startingPosition).IsOnBorder())
+   //       return path.Select(x => x.Item1);
+   //    if (board[ startingPosition ].IsEmpty)
+   //       return path.Select(x => x.Item1);
+   //
+   //    var startBorder = IdentifyBorderPosition(board, startingPosition);
+   //    var winningSides = IdentifyWinningSides(startBorder);
+   //    var current = startingPosition;
+   //    
+   //    // var possibleMoves = FindPossibleMoves(board, current);
+   //    // foreach (var possibleMove in possibleMoves)
+   //    // {
+   //    //    
+   //    // }
+   //
+   //    return path.Select(x => x.Item1);
+   // }
 
-   public IEnumerable<Point> Find(GameBoard board, Point startingPosition)
+   public bool FindWinner(GameBoard board, Point startingPosition)
    {
-      var path = new List<(Point, List<Direction>)>();
-
       if (!IdentifyBorderPosition(board, startingPosition).IsOnBorder())
-         return path.Select(x => x.Item1);
+         return false;
       if (board[ startingPosition ].IsEmpty)
-         return path.Select(x => x.Item1);
+         return false;
 
-      var current = startingPosition;
+      var startBorder = IdentifyBorderPosition(board, startingPosition);
+      var winningSides = IdentifyWinningSides(startBorder);
+
+      return FindWinner(board, winningSides, startingPosition);
+   }
+   
+   private bool FindWinner(GameBoard board, IEnumerable<BorderPosition> winningBorders, Point current)
+   {
       var possibleMoves = FindPossibleMoves(board, current);
+      foreach (var possibleMove in possibleMoves)
+      {
+         var possibleEdge = IdentifyBorderPosition(board, possibleMove);
+         if (winningBorders.Contains(possibleEdge))
+            return true;
+      }
 
-      return path.Select(x => x.Item1);
+      return false;
    }
 
    public IEnumerable<Point> FindPossibleMoves(GameBoard board, Point current)

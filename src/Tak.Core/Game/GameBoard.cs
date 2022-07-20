@@ -68,45 +68,25 @@ public class GameBoard
    public bool IsOnBoard(Point point) =>
       point.X >= 0 && point.X < MaxWidth && point.Y >= 0 && point.Y < MaxHeight;
 
-   // public BorderPosition IdentifyBorderPosition(int x, int y)
-   //    => IdentifyBorderPosition(new Point(x, y));
-   //
-   // public BorderPosition IdentifyBorderPosition(Point point)
+   // public void ForEach(Action<Point> action)
    // {
-   //    var strats = new Dictionary<BorderPosition, Func<Point, bool>>
+   //    for (int x = 0; x < MaxWidth; x++)
    //    {
-   //       {BorderPosition.CornerUpperLeft, pt => pt.X == 0 && pt.Y == 0},
-   //       {BorderPosition.CornerUpperRight, pt => pt.X == MaxWidth - 1 && pt.Y == 0},
-   //       {BorderPosition.CornerLowerLeft, pt => pt.X == 0 && pt.Y == MaxHeight - 1},
-   //       {BorderPosition.CornerLowerRight, pt => pt.X == MaxWidth - 1 && pt.Y == MaxHeight - 1},
-   //       {BorderPosition.LeftEdge, pt => (pt.X == 0) && (pt.Y != 0 && pt.Y != MaxHeight - 1)},
-   //       {BorderPosition.RightEdge, pt => (pt.X == MaxWidth - 1) && (pt.Y != 0 && pt.Y != MaxHeight - 1)},
-   //       {BorderPosition.TopEdge, pt => (pt.X != 0 && pt.X != MaxWidth - 1) && (pt.Y == 0)},
-   //       {BorderPosition.BottomEdge, pt => (pt.X != 0 && pt.X != MaxWidth - 1) && (pt.Y == MaxHeight - 1)}
-   //    };
-   //
-   //    return strats.Keys.FirstOrDefault(key => strats[ key ](point));
+   //       for (int y = 0; y < MaxHeight; y++)
+   //       {
+   //          action(new Point(x, y));
+   //       }
+   //    }
    // }
-
-   public void ForEach(Action<Point> action)
-   {
-      for (int x = 0; x < MaxWidth; x++)
-      {
-         for (int y = 0; y < MaxHeight; y++)
-         {
-            action(new Point(x, y));
-         }
-      }
-   }
-
-   public void ForEach(Action<Square?> action)
-   {
-      for (int x = 0; x < MaxWidth; x++)
-      {
-         for (int y = 0; y < MaxHeight; y++)
-         {
-            action(this[ x, y ]);
-         }
-      }
-   }
+   //
+   // public void ForEach(Action<Square?> action)
+   // {
+   //    for (int x = 0; x < MaxWidth; x++)
+   //    {
+   //       for (int y = 0; y < MaxHeight; y++)
+   //       {
+   //          action(this[ x, y ]);
+   //       }
+   //    }
+   // }
 }

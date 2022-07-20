@@ -1,5 +1,3 @@
-using System.Drawing;
-using FluentAssertions;
 using Tak.Core.Game;
 
 namespace Tak.Core.Tests.Game;
